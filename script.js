@@ -26,11 +26,7 @@ for (let item of listItem) {
 }
 
 input.oninput = function () {
-    if ((input.value.length > 142) || (input.value.length < 3) ) {
-      button.disabled = true;
-    } else {
-      button.disabled = false;
-    }
+    button.disabled = (input.value.length > 142) || (input.value.length < 3);
   }
 
 window.onscroll = function () {

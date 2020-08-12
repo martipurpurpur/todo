@@ -14,14 +14,14 @@ html {
 .up-button {
   position: fixed;
   z-index: 1;
-  padding: 0;
+  background-image: url(up.svg);
+  background-size: 85%;
+  background-repeat: no-repeat;
+  background-position: center;
   bottom: 75px;
   right: 20px;
   width: 64px;
   height: 64px;
-  font-size: 36px;
-  font-weight: bold;
-  text-align: center;
   vertical-align: middle;
   border: 5px solid DarkSlateBlue;
   border-radius: 50%;
@@ -29,7 +29,6 @@ html {
   display: none;
   cursor: pointer;
 }
-
 
 .shown {
   display: inline-block;
