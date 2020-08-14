@@ -1,5 +1,15 @@
 html {
-  scroll-behavior: smooth; //для плавного перемещения
+  scroll-behavior: smooth; /* для плавного перемещения */
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+main {
+  flex: 1 0 auto;
 }
 .btn {
   background-color: DarkSlateBlue;
@@ -32,4 +42,11 @@ html {
 
 .shown {
   display: inline-block;
+}
+
+footer.col {
+  min-height: 5em;
+  padding: 2em;
+  padding-right: 10em;
+  flex: 0 0 auto;
 }
