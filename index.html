@@ -24,12 +24,12 @@
 
   <main>
     <div class="container-fluid d-flex justify-content-center">
-      <section class="col-lg-4 col-md-4 col-sm-12">
+      <section class="col-lg-4 col-md-6 col-sm-8">
 
         <ul class="list-group mb-4">
         </ul>
 
-        <p class="empty-tasks hidden">Ура! Задач нет</p>
+        <p class="empty-tasks hidden">Ура! Задач нет. Но это пока...</p>
 
         <form class="add-form">
           <div class="form-group form-task">
@@ -40,14 +40,15 @@
             <input type="checkbox" class="form-check-input" id="check-important">
             <label class="form-check-label" for="check-important">Это пипец как важно!</label>
           </div>
-          <button type="submit" class="btn create">Создать проблем</button>
+          <button type="submit" class="btn create col-lg-6 col-md-6 col-sm-8 mt-2">Создать проблем</button>
+          <button type="button" class="btn clear col-lg-6 col-md-6 col-sm-8 mt-2">Всё! Пошли гулять</button>
         </form>
 
       </section>
     </div>
 
     <button class="up-button" type="button">
-      &nbsp;
+      &#160;
     </button>
   </main>
 
@@ -60,7 +61,6 @@
       <li class="list-group-item">
         <span class="mr-2 number"></span>
         <span class="description"></span>
-      <li class="list-group-item">
       </li>
     </ul>
   </template>
