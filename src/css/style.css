@@ -37,7 +37,7 @@ footer.col {
 .up-button {
   position: fixed;
   z-index: 1;
-  background-image: url(up.svg);
+  background-image: url(src/images/up.svg);
   background-size: 85%;
   background-repeat: no-repeat;
   background-position: center;

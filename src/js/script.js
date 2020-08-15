@@ -1,5 +1,4 @@
 let list = document.querySelector('.list-group');
-let items = list.children;
 let form = document.querySelector('.add-form')
 let inputForm = form.querySelector('.input-task');
 let taskTemplate = document.querySelector('#task-template').content;
