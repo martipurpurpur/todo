@@ -16,6 +16,11 @@ localStorage.setItem('list', JSON.stringify(tempTaskArray));
 /* get all in localStorage */
 const data = JSON.parse(localStorage.getItem('list'));
 
+/* to checked any list for emptiness*/
+let isEmptyList = function (checkedList) {
+    return checkedList.length === 0;
+}
+
 /* to message if empty tasks list */
 let toggleEmptyListMessage = function (items) {
     if (isEmptyList(items)) {
@@ -25,10 +30,8 @@ let toggleEmptyListMessage = function (items) {
     }
 };
 
-/* to checked any list for emptiness*/
-let isEmptyList = function (checkedList) {
-    return checkedList.length === 0;
-}
+/* to message if empty storage */
+toggleEmptyListMessage(tempTaskArray);
 
 /* to line through items */
 let doneTaskHandler = function (item) {
@@ -68,7 +71,7 @@ form.addEventListener('submit', function (evt) {
     tempTaskArray.push(itemTaskArray);
     localStorage.setItem('list', JSON.stringify(tempTaskArray));
     renderingLiItems(itemTaskArray);
-
+    toggleEmptyListMessage(tempTaskArray);
     inputForm.value = '';
 });
 
@@ -79,6 +82,7 @@ clearButton.addEventListener('click', function() {
     while (list.firstChild) {
         list.removeChild(list.firstChild);
     }
+    toggleEmptyListMessage(tempTaskArray);
 });
 
 /* validation, to disabled button */
