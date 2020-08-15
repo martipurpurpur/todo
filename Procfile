@@ -1,1 +1,1 @@
-web: node src/js/script.js
+web: node script.js
