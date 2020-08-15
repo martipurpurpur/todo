@@ -41,21 +41,45 @@
             <label class="form-check-label" for="check-important">Это пипец как важно!</label>
           </div>
           <button type="submit" class="btn create col-lg-6 col-md-6 col-sm-8 mt-2">Создать проблем</button>
-          <button type="button" class="btn clear col-lg-6 col-md-6 col-sm-8 mt-2">Всё! Пошли гулять</button>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn col-lg-6 col-md-6 col-sm-8 mt-2" data-toggle="modal" data-target="#clear-modal">Всё! Пошли гулять</button>
         </form>
 
       </section>
     </div>
 
+  <footer class="col text-right mt-2">
+  	<span>&copy; Martipurpurpur</span>
+  </footer>
+
+    <!-- Up button -->
     <button class="up-button" type="button">
       &#160;
     </button>
   </main>
 
-  <footer class="col text-right mt-2">
-  	<span>&copy; Martipurpurpur</span>
-  </footer>
+  <!-- Modal -->
+  <div class="modal fade" id="clear-modal" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Внимание!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <b>Удалить всё</b> и сразу? Точно?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" data-dismiss="modal">Нет</button>
+          <button type="button" class="btn clear">Точно!</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <!-- Task template -->
   <template id="task-template">
     <ul class="list-group mb-4">
       <li class="list-group-item">
@@ -66,7 +90,9 @@
   </template>
 
   <script src="script.js"></script>
-
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 
 </html>

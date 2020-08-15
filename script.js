@@ -82,6 +82,7 @@ clearButton.addEventListener('click', function() {
     while (list.firstChild) {
         list.removeChild(list.firstChild);
     }
+    $('#clear-modal').modal('hide') // bootstrap jQuery function modal
     toggleEmptyListMessage(tempTaskArray);
 });
 
