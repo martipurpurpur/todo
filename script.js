@@ -1,7 +1,7 @@
 let list = document.querySelector('.list-group');
 let items = list.children;
 let form = document.querySelector('.add-form')
-let newItemForm = form.querySelector('.input-task');
+let inputForm = form.querySelector('.input-task');
 let taskTemplate = document.querySelector('#task-template').content;
 let newItemTemplate = taskTemplate.querySelector('.list-group-item');
 let emptyListMessage = document.querySelector('.empty-tasks');
@@ -30,17 +30,18 @@ let importantCheckHandler = function (item) {
 form.addEventListener('submit', function (evt) {
     evt.preventDefault();
 
-    let taskText = newItemForm.value;
+    let taskText = inputForm.value;
     let task = newItemTemplate.cloneNode(true);
     let taskDescription = task.querySelector('.description');
     let taskNumber = task.querySelector('.number');
 
     taskDescription.textContent = taskText;
     taskNumber.textContent = items.length + 1 + '.';
-    list.appendChild(task);
 
+    list.appendChild(task);
     doneTaskHandler(task);
-    newItemForm.value = '';
+
+    inputForm.value = '';
 });
 
 /* to line through items */
@@ -51,8 +52,8 @@ let doneTaskHandler = function (item) {
 }
 
 /* validation, to disabled button */
-newItemForm.oninput = function () {
-    button.disabled = (newItemForm.value.length > 142) || (newItemForm.value.length < 3);
+inputForm.oninput = function () {
+    button.disabled = (inputForm.value.length > 142) || (inputForm.value.length < 3);
   };
 
 
