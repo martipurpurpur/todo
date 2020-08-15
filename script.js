@@ -33,7 +33,7 @@ let toggleEmptyListMessage = function (items) {
 /* to message if empty storage */
 toggleEmptyListMessage(tempTaskArray);
 
-/* to line through items */
+/* to line through done items */
 let doneTaskHandler = function (item) {
     item.addEventListener('click', function() {
         item.classList.toggle('line-through');
@@ -73,6 +73,7 @@ form.addEventListener('submit', function (evt) {
     renderingLiItems(itemTaskArray);
     toggleEmptyListMessage(tempTaskArray);
     inputForm.value = '';
+    important.checked = false;
 });
 
 /* delete all tasks */

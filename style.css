@@ -67,4 +67,8 @@ footer.col {
   color: crimson;
 }
 
+.btn.warning {
+  background-color: crimson;
+  color: Snow;
+}
 
