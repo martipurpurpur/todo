@@ -1,34 +1,40 @@
-let form = document.querySelector('.task');
-let input = document.querySelector('.input');
 let list = document.querySelector('.list-group');
-let listItem = document.querySelectorAll('.list-group-item');
+let items = list.children;
+let form = document.querySelector('.add-form')
+let newItemForm = form.querySelector('.input-task');
+let taskTemplate = document.querySelector('#task-template').content;
+let newItemTemplate = taskTemplate.querySelector('.list-group-item');
+let emptyListMessage = document.querySelector('.empty-tasks');
 let button = document.querySelector('.create');
-let number = listItem.length;
+let number = list.length;
 let upButton = document.querySelector('.up-button');
+let itemStorage;
+let listStorage;
 
-form.onsubmit = function (evt) {
-   evt.preventDefault();
-  let newListItem = document.createElement('li');
-  newListItem.classList.add('list-group-item');
+/* if empty tasks list */
+let toggleEmptyListMessage = function () {
+    if (items.length === 0) {
+        emptyListMessage.classList.remove('hidden');
+    } else {
+        emptyListMessage.classList.add('hidden');
+    }
+};
 
-  number++;
-
-  newListItem.textContent = number + ". " + input.value ;
-  list.append(newListItem);
-
-  input.value = '';
-}
-
-for (let item of listItem) {
+/* to line through items */
+for (let item of items) {
   item.onclick = function () {
     item.classList.toggle('line-through');
   }
 }
 
-input.oninput = function () {
-    button.disabled = (input.value.length > 142) || (input.value.length < 3);
-  }
 
+/* validation, to disabled button */
+newItemForm.oninput = function () {
+    button.disabled = (newItemForm.value.length > 142) || (newItemForm.value.length < 3);
+  };
+
+
+/* up button */
 window.onscroll = function () {
     if (window.pageYOffset > 200) {
       upButton.classList.add('shown');
@@ -36,7 +42,6 @@ window.onscroll = function () {
       upButton.classList.remove('shown');
     }
   };
-
 upButton.onclick = function () {
     window.scrollTo(100, 50);
-  }
+  };

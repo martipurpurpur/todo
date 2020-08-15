@@ -4,10 +4,15 @@ html {
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
+}
+
+/* to fixed footer */
+body {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
 }
+/* to fixed footer */
 main {
   flex: 1 0 auto;
 }
@@ -44,9 +49,12 @@ main {
   display: inline-block;
 }
 
+.hidden {
+  display: none;
+}
+
 footer.col {
-  min-height: 5em;
-  padding: 2em;
-  padding-right: 10em;
-  flex: 0 0 auto;
+  height: 2em;
+  padding: 1em 5em 1em 1em;
+  flex-shrink: 0; /* to fixed footer */
 }
