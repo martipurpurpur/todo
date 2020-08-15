@@ -53,6 +53,12 @@ main {
   display: none;
 }
 
+.important {
+  background-color: lightpink;
+  font-weight: bold;
+  color: crimson;
+}
+
 footer.col {
   height: 2em;
   padding: 1em 5em 1em 1em;

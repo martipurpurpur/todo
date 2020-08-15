@@ -6,7 +6,6 @@ let taskTemplate = document.querySelector('#task-template').content;
 let newItemTemplate = taskTemplate.querySelector('.list-group-item');
 let emptyListMessage = document.querySelector('.empty-tasks');
 let button = document.querySelector('.create');
-let number = list.length;
 let upButton = document.querySelector('.up-button');
 let itemStorage;
 let listStorage;
@@ -20,13 +19,36 @@ let toggleEmptyListMessage = function () {
     }
 };
 
-/* to line through items */
-for (let item of items) {
-  item.onclick = function () {
-    item.classList.toggle('line-through');
-  }
-}
+/* if check important
+let importantCheckHandler = function (item) {
+    let checkbox = document.querySelector('.form-check-input');
+    checkbox.addEventListener('change', function () {
+        item.classList.add('important');
+    });
+};*/
 
+form.addEventListener('submit', function (evt) {
+    evt.preventDefault();
+
+    let taskText = newItemForm.value;
+    let task = newItemTemplate.cloneNode(true);
+    let taskDescription = task.querySelector('.description');
+    let taskNumber = task.querySelector('.number');
+
+    taskDescription.textContent = taskText;
+    taskNumber.textContent = items.length + 1 + '.';
+    list.appendChild(task);
+
+    doneTaskHandler(task);
+    newItemForm.value = '';
+});
+
+/* to line through items */
+let doneTaskHandler = function (item) {
+    item.addEventListener('click', function() {
+        item.classList.toggle('line-through');
+    });
+}
 
 /* validation, to disabled button */
 newItemForm.oninput = function () {
