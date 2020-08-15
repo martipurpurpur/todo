@@ -4,7 +4,7 @@
   "description": "simple todo-list",
   "main": "src/js/script.js",
   "scripts": {
-    "start": "node index.html"
+    "start": "node src/js/script.js"
   },
   "repository": {
     "type": "git",
