@@ -87,7 +87,8 @@ clearButton.addEventListener('click', function() {
 
 /* validation, to disabled button */
 inputForm.oninput = function () {
-    button.disabled = (inputForm.value.length > 142) || (inputForm.value.length < 3);
+    let value = inputForm.value.length;
+    button.disabled = (value > 142) || (value < 3) && value !== 0;
   };
 
 
