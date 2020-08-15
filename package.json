@@ -2,9 +2,9 @@
   "name": "marti-todolist",
   "version": "1.0.0",
   "description": "simple todo-list",
-  "main": "src/js/script.js",
+  "main": "index.js",
   "scripts": {
-    "start": "index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/martipurpurpur/todo/issues"
   },
-  "homepage": "https://github.com/martipurpurpur/todo#readme"
+  "homepage": "https://github.com/martipurpurpur/todo#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "express": "^4.17.1"
+  }
 }
