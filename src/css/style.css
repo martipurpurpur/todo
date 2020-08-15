@@ -72,3 +72,8 @@ footer.col {
   color: Snow;
 }
 
+@media screen and (max-width: 767px) {
+  .up-button {
+    display: none !important;
+  }
+}
