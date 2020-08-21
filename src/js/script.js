@@ -10,9 +10,10 @@ let upButton = document.querySelector('.up-button');
 let clearButton = document.querySelector('.clear');
 let tempTaskArray = localStorage.getItem('list') ? JSON.parse(localStorage.getItem('list')) : [];
 
+/* set data from temporary array to local storage */
 localStorage.setItem('list', JSON.stringify(tempTaskArray));
 
-/* get all in localStorage */
+/* get all data from localStorage */
 const data = JSON.parse(localStorage.getItem('list'));
 
 /* to checked any list for emptiness*/
@@ -59,12 +60,17 @@ data.forEach(item => {
     renderingLiItems(item);
 });
 
+/* replace more than 1 whitespace symbols*/
+String.prototype.reduceWhiteSpace = function() {
+    return this.replace(/\s+/g, ' ');
+};
+
 /* listen event form and added new task in temporary array and localStorage */
 form.addEventListener('submit', function (evt) {
     evt.preventDefault();
 
     let itemTaskArray = {
-        task: inputForm.value,
+        task: inputForm.value.reduceWhiteSpace(),
         important: important.checked
     };
     tempTaskArray.push(itemTaskArray);
@@ -89,10 +95,14 @@ clearButton.addEventListener('click', function() {
 /* validation, to disabled button */
 inputForm.oninput = function () {
     let value = inputForm.value.length;
-    button.disabled = (value > 142) || (value < 3) && value !== 0;
-  };
+    button.disabled = (value > 100) || (value < 3) && value !== 0;
+};
 
+/* validation task input
+let validation = function () {
 
+};
+*/
 /* up button */
 window.onscroll = function () {
     if (window.pageYOffset > 200) {
