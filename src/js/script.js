@@ -48,7 +48,8 @@ let deleteTaskHandler = function (task, id) {
     deleteButton.addEventListener('click', function () {
 
         task.classList.add('hidden');
-        tempTaskArray = tempTaskArray.filter(task => task.number !== id);
+
+        tempTaskArray = tempTaskArray.filter(task => task.id !== id);
 
         localStorage.clear();
         localStorage.setItem('list', JSON.stringify(tempTaskArray));
@@ -67,12 +68,12 @@ const renderingLiItems = function (itemTaskArray) {
     let taskNumber = task.querySelector('.number');
 
     taskDescription.textContent = itemTaskArray.task;
-    taskNumber.textContent = itemTaskArray.number + 1 + '.';
+    taskNumber.textContent = list.childNodes.length + '.';  // number of child items in the list
 
     if (itemTaskArray.important) task.classList.add('important');
     list.appendChild(task);
     doneTaskHandler(task);
-    deleteTaskHandler(task, itemTaskArray.number);
+    deleteTaskHandler(task, itemTaskArray.id);
 
 };
 
@@ -88,12 +89,15 @@ String.prototype.reduceWhiteSpace = function() {
 
 /* listen event form and added new task in temporary array and localStorage */
 form.addEventListener('submit', function (evt) {
+
     evt.preventDefault();
+    // find max id value in templated array
+    let id = tempTaskArray.length ? Math.max(...tempTaskArray.map(task => task.id)) : 0;
 
     let itemTaskArray = {
         task: inputForm.value.reduceWhiteSpace(),
         important: important.checked,
-        number: tempTaskArray.length
+        id: id + 1
     };
     tempTaskArray.push(itemTaskArray);
     localStorage.setItem('list', JSON.stringify(tempTaskArray));
