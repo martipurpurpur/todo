@@ -72,6 +72,26 @@ footer.col {
   color: Snow;
 }
 
+button.delete {
+  display: none
+}
+
+li:hover:not(.hidden),
+.list-group-item:not(.hidden) {
+  display: flex;
+  cursor: pointer;
+}
+
+li:hover>button.delete {
+  display: flex;
+  margin-left: auto;
+  border: none;
+  background-color: transparent;
+  background-image: url(../images/del.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 @media screen and (max-width: 767px) {
   .up-button {
     display: none !important;
