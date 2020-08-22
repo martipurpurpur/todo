@@ -38,20 +38,41 @@ let doneTaskHandler = function (item) {
     item.addEventListener('click', function() {
         item.classList.toggle('line-through');
     });
-}
+};
+
+/* delete task */
+let deleteTaskHandler = function (task) {
+    let deleteButton = task.querySelector('.delete');
+    let id = task.number;
+    let updateTempTaskArray = [];
+
+    deleteButton.addEventListener('click', function () {
+
+        task.classList.add('hidden');
+// добавить сюда удаление по id таски из временного массива
+        tempTaskArray = updateTempTaskArray;
+        localStorage.clear();
+        localStorage.setItem('list', JSON.stringify(tempTaskArray));
+        toggleEmptyListMessage(tempTaskArray);
+
+    });
+
+};
 
 /* render li items */
 const renderingLiItems = function (itemTaskArray) {
 
     let task = newItemTemplate.cloneNode(true);
     let taskDescription = task.querySelector('.description');
-   // let taskNumber = task.querySelector('.number');
+    let taskNumber = task.querySelector('.number');
 
     taskDescription.textContent = itemTaskArray.task;
-    //taskNumber.textContent = tempTaskArray.length + 1 + '.';
+    taskNumber.textContent = itemTaskArray.number + 1 + '.';
+
     if (itemTaskArray.important) task.classList.add('important');
     list.appendChild(task);
     doneTaskHandler(task);
+    deleteTaskHandler(task);
 
 };
 
@@ -71,7 +92,8 @@ form.addEventListener('submit', function (evt) {
 
     let itemTaskArray = {
         task: inputForm.value.reduceWhiteSpace(),
-        important: important.checked
+        important: important.checked,
+        number: tempTaskArray.length
     };
     tempTaskArray.push(itemTaskArray);
     localStorage.setItem('list', JSON.stringify(tempTaskArray));
@@ -103,6 +125,7 @@ let validation = function () {
 
 };
 */
+
 /* up button */
 window.onscroll = function () {
     if (window.pageYOffset > 200) {
