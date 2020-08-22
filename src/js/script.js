@@ -40,19 +40,19 @@ let doneTaskHandler = function (item) {
     });
 };
 
-/* delete task */
-let deleteTaskHandler = function (task) {
+/* delete one task */
+let deleteTaskHandler = function (task, id) {
+
     let deleteButton = task.querySelector('.delete');
-    let id = task.number;
-    let updateTempTaskArray = [];
 
     deleteButton.addEventListener('click', function () {
 
         task.classList.add('hidden');
-// добавить сюда удаление по id таски из временного массива
-        tempTaskArray = updateTempTaskArray;
+        tempTaskArray = tempTaskArray.filter(task => task.number !== id);
+
         localStorage.clear();
         localStorage.setItem('list', JSON.stringify(tempTaskArray));
+
         toggleEmptyListMessage(tempTaskArray);
 
     });
@@ -72,7 +72,7 @@ const renderingLiItems = function (itemTaskArray) {
     if (itemTaskArray.important) task.classList.add('important');
     list.appendChild(task);
     doneTaskHandler(task);
-    deleteTaskHandler(task);
+    deleteTaskHandler(task, itemTaskArray.number);
 
 };
 
