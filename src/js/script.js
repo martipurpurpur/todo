@@ -8,6 +8,7 @@ let important = document.querySelector('.form-check-input');
 let button = document.querySelector('.create');
 let upButton = document.querySelector('.up-button');
 let clearButton = document.querySelector('.clear');
+let modalButton = document.querySelector('.modal-clear');
 let tempTaskArray = localStorage.getItem('list') ? JSON.parse(localStorage.getItem('list')) : [];
 
 /* set data from temporary array to local storage */
@@ -25,8 +26,10 @@ let isEmptyList = function (checkedList) {
 let toggleEmptyListMessage = function (items) {
     if (isEmptyList(items)) {
         emptyListMessage.classList.remove('hidden');
+        modalButton.disabled = true;
     } else {
         emptyListMessage.classList.add('hidden');
+        modalButton.disabled = false;
     }
 };
 
